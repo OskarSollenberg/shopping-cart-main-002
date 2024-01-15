@@ -1,8 +1,9 @@
 import Product from "./Product";
-import { products } from "../data";
 import { Link } from "react-router-dom";
+import useGetProducts from "../hooks/useGetProducts";
 
 function Store({ onAdd }) {
+  const { products } = useGetProducts();
   return (
     <div className="w-screen h-screen flex flex-col items-center">
       <h1 className="text-[3rem] mt-10 text-center">Duck Store</h1>

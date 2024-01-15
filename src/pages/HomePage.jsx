@@ -3,7 +3,7 @@ import Section from "../components/Section";
 
 function HomePage({ onAdd, productInfo }) {
   return (
-    <div className="bg-white">
+    <div className="bg-white ">
       <Store productInfo={productInfo} onAdd={onAdd} />
       <Section />
       <Section />

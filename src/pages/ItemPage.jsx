@@ -1,24 +1,15 @@
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { products } from "../data";
-import Product from "../components/Product";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { useParams } from "react-router-dom";
+import Product from "../components/Product";
+import useGetProduct from "../hooks/useGetProduct";
 
 export default function ItemPage({ onAdd }) {
-  const [item, setItem] = useState();
   const { id } = useParams();
-
-  useEffect(() => {
-    const foundItem = products.find((product) => {
-      return product.id === +id;
-    });
-    setItem((prev) => foundItem);
-  }, [id]);
+  const { product } = useGetProduct(id);
+  const item = product;
 
   if (!item) return <div>Item not found</div>;
-
-  const { description } = item;
 
   return (
     <div
@@ -32,7 +23,7 @@ export default function ItemPage({ onAdd }) {
       <div
         style={{ marginTop: "3rem", marginBottom: "2rem", fontSize: "2rem" }}
       >
-        {description}
+        {"description"}
       </div>
       <Product itemPageActive={true} product={item} onAdd={onAdd} />
     </div>
