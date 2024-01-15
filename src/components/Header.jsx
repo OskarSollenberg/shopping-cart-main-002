@@ -9,9 +9,9 @@ function Header({ cartItems, onCartEmpty, onAdd, onRemove }) {
       <div className={`ml-[5rem] items-center hidden md:flex`}>
         <GiDuck style={{ width: "2rem" }} />
       </div>
-      <div className={`flex ml-[5rem] md:hidden`}>
+      <button className={`flex ml-[5rem] md:hidden`}>
         <GiHamburgerMenu />
-      </div>
+      </button>
       <nav className={`hidden gap-10 text-[1.5rem] md:flex `}>
         <Link to={`/`}>
           <a
