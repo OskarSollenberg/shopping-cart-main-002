@@ -8,7 +8,7 @@ function Store({ onAdd }) {
     <div className="w-screen h-screen flex flex-col items-center">
       <h1 className="text-[3rem] mt-10 text-center">Duck Store</h1>
       <div
-        className={`grid grid-rows-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-4 mt-10 `}
+        className={`grid grid-rows-2 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-4 mt-10 `}
       >
         {products.map((product) => {
           return (

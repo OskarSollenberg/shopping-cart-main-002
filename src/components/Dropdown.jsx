@@ -9,7 +9,7 @@ function Dropdown({ cartItems, visible, onCartEmpty, onAdd, onRemove }) {
   );
   return (
     <div
-      className={`absolute pl-1 border-white pb-1 pr-1 w-[300px] top-[110%] bg-brown right-0 transition-all duration-500 flex flex-col gap-5 delay-75 text-lg overflow-y-hidden
+      className={`absolute pl-1 border-white pb-1 pr-1 w-[300px] top-[110%] bg-brown right-0 transition-all duration-500 flex flex-col gap-5 delay-75 text-lg
 	${visible ? "translate-x-[-30px] w-" : "translate-x-[300px]"}
 	${visible ? "opacity-100" : "opacity-0"}
         `}
