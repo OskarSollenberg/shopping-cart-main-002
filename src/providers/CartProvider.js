@@ -39,7 +39,12 @@ export const CartProvider = ({ children }) => {
     });
 
     if (!foundItemInCart && quantity > 0) {
-      cart.push({ id, count: quantity });
+      cart.push({
+        name: product.name,
+        id,
+        count: quantity,
+        price: product.price,
+      });
     }
 
     const readyCart = cart.filter((d) => d.count > 0);

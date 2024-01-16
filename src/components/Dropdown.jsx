@@ -1,18 +1,17 @@
 import { FaShoppingBag } from "react-icons/fa";
 import Button from "./Button";
 import { useCart } from "../providers/CartProvider.hook";
-import useGetProducts from "../hooks/useGetProducts";
 
 function Dropdown({ visible }) {
   const { get, add, remove, empty } = useCart();
   const cartItems = get();
-  const { products } = useGetProducts();
   console.log(cartItems);
 
   const totalPrice = cartItems.reduce(
     (acc, curr) => acc + curr.price * curr.count,
     0
   );
+
   return (
     <div
       className={`absolute pl-1 border-white pb-1 pr-1 w-[300px] top-[110%] bg-brown right-0 transition-all duration-500 flex flex-col gap-5 delay-75 text-lg
@@ -25,28 +24,27 @@ function Dropdown({ visible }) {
           <FaShoppingBag />
         </div>
 
-        {cartItems.map((item) => {
-          const foundItem = products.find((product) => product.id === item.id);
+        {cartItems.map((cartItem) => {
           return (
             <div
               className={`flex justify-between items-center p-1 w-[100%] border-b border-white`}
             >
               <div className={`flex gap-1`}>
-                <div>{foundItem.name}</div>
+                <div>{cartItem.name}</div>
                 <div className={`text-[.7rem] translate-y-[-5px] text-blue`}>
-                  ({item.count})
+                  ({cartItem.count})
                 </div>
               </div>
               <div className={`flex gap-2 p-1 justify-center items-center  `}>
                 <button
-                  onClick={() => remove(foundItem)}
-                  className={`flex w-5 h-5 justify-center items-center rounded-sm bg-orange`}
+                  onClick={() => remove(cartItem)}
+                  className={`flex w-5 h-5 justify-center items-center rounded-sm bg-orange hover:scale-110 transition-all duration-100 active:scale-75`}
                 >
                   -
                 </button>
                 <button
-                  onClick={() => add(foundItem)}
-                  className={`flex w-5 h-5 justify-center items-center rounded-sm bg-orange`}
+                  onClick={() => add(cartItem)}
+                  className={`flex w-5 h-5 justify-center items-center rounded-sm bg-orange hover:scale-110 transition-all duration-100 active:scale-75`}
                 >
                   +
                 </button>

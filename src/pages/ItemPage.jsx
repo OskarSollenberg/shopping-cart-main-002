@@ -8,23 +8,22 @@ export default function ItemPage() {
   const { id } = useParams();
   const { product } = useGetProduct(id);
 
-  if (!product) return <div>Item not found</div>;
-
-  return (
-    <div
-      className={`flex flex-col justify-start items-center bg-white h-screen`}
-    >
-      <Link to={`/`}>
-        <div className="absolute text-[3rem] left-20 top-32 text-orange animate-bounce active:animate-none border-brown rounded-lg border-2">
-          <IoMdArrowRoundBack />
-        </div>
-      </Link>
+  if (product)
+    return (
       <div
-        style={{ marginTop: "3rem", marginBottom: "2rem", fontSize: "2rem" }}
+        className={`flex flex-col justify-start items-center bg-white h-screen`}
       >
-        {"description"}
+        <Link to={`/`}>
+          <div className="absolute text-[3rem] left-20 top-32 text-orange animate-bounce active:animate-none border-brown rounded-lg border-2">
+            <IoMdArrowRoundBack />
+          </div>
+        </Link>
+        <div
+          style={{ marginTop: "3rem", marginBottom: "2rem", fontSize: "2rem" }}
+        >
+          {`Best looking ${product.name} ever made!`}
+        </div>
+        <Product itemPageActive={true} product={product} />
       </div>
-      <Product itemPageActive={true} product={product} />
-    </div>
-  );
+    );
 }

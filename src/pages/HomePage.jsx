@@ -1,10 +1,10 @@
 import Store from "../components/Store";
 import Section from "../components/Section";
 
-function HomePage({ productInfo }) {
+function HomePage() {
   return (
     <div className="bg-white ">
-      <Store productInfo={productInfo} />
+      <Store />
       <Section />
       <Section />
     </div>
