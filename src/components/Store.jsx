@@ -2,7 +2,7 @@ import Product from "./Product";
 import { Link } from "react-router-dom";
 import useGetProducts from "../hooks/useGetProducts";
 
-function Store({ onAdd }) {
+function Store() {
   const { products } = useGetProducts();
   return (
     <div className="w-screen h-screen flex flex-col items-center">
@@ -14,11 +14,7 @@ function Store({ onAdd }) {
           return (
             <div>
               <Link to={`/Product/${product.id}`} key={product.id}>
-                <Product
-                  itemPageActive={false}
-                  product={product}
-                  onAdd={onAdd}
-                />
+                <Product itemPageActive={false} product={product} />
               </Link>
             </div>
           );

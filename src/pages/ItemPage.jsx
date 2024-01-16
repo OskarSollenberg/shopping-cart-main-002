@@ -4,12 +4,11 @@ import { useParams } from "react-router-dom";
 import Product from "../components/Product";
 import useGetProduct from "../hooks/useGetProduct";
 
-export default function ItemPage({ onAdd }) {
+export default function ItemPage() {
   const { id } = useParams();
   const { product } = useGetProduct(id);
-  const item = product;
 
-  if (!item) return <div>Item not found</div>;
+  if (!product) return <div>Item not found</div>;
 
   return (
     <div
@@ -25,7 +24,7 @@ export default function ItemPage({ onAdd }) {
       >
         {"description"}
       </div>
-      <Product itemPageActive={true} product={item} onAdd={onAdd} />
+      <Product itemPageActive={true} product={product} />
     </div>
   );
 }

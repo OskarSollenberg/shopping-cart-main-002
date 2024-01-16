@@ -1,7 +1,9 @@
 import Button from "./Button";
+import useCart from "../hooks/useCart";
 
-function Product({ product, onAdd, itemPageActive }) {
+function Product({ product, itemPageActive }) {
   const { name, price, image } = product;
+  const { add } = useCart();
 
   return (
     <div
@@ -19,7 +21,7 @@ function Product({ product, onAdd, itemPageActive }) {
       </div>
       <Button
         onClick={() => {
-          onAdd(product);
+          add(product);
         }}
       >
         Add to cart

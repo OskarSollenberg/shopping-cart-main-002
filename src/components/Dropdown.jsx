@@ -1,8 +1,12 @@
 import { FaShoppingBag } from "react-icons/fa";
 import { products } from "../data";
 import Button from "./Button";
+import useCart from "../hooks/useCart";
 
-function Dropdown({ cartItems, visible, onCartEmpty, onAdd, onRemove }) {
+function Dropdown({ visible, onCartEmpty }) {
+  const { get, add, remove } = useCart();
+  const cartItems = get();
+
   const totalPrice = cartItems.reduce(
     (acc, curr) => acc + curr.price * curr.count,
     0
@@ -33,13 +37,13 @@ function Dropdown({ cartItems, visible, onCartEmpty, onAdd, onRemove }) {
               </div>
               <div className={`flex gap-2 p-1 justify-center items-center  `}>
                 <button
-                  onClick={() => onRemove(foundItem)}
+                  onClick={() => remove(foundItem)}
                   className={`flex w-5 h-5 justify-center items-center rounded-sm bg-orange`}
                 >
                   -
                 </button>
                 <button
-                  onClick={() => onAdd(foundItem)}
+                  onClick={() => add(foundItem)}
                   className={`flex w-5 h-5 justify-center items-center rounded-sm bg-orange`}
                 >
                   +

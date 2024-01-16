@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgCloseR } from "react-icons/cg";
 
-import { useState, Children } from "react";
+import { useState } from "react";
 
-function Header({ cartItems, onCartEmpty, onAdd, onRemove }) {
+function Header({ onCartEmpty }) {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -68,12 +68,7 @@ function Header({ cartItems, onCartEmpty, onAdd, onRemove }) {
 
       `}
       >
-        <Cart
-          onRemove={onRemove}
-          onAdd={onAdd}
-          onCartEmpty={onCartEmpty}
-          cartItems={cartItems}
-        />
+        <Cart onCartEmpty={onCartEmpty} />
       </div>
     </div>
   );

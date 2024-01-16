@@ -1,8 +1,12 @@
 import { useState } from "react";
 import Dropdown from "./Dropdown";
 import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../hooks/useCart";
 
-function Cart({ cartItems, onCartEmpty, onAdd, onRemove, product }) {
+function Cart({ onCartEmpty }) {
+  const { get } = useCart();
+  const cartItems = get();
+
   const [toggleDropdown, setoggleDropdown] = useState(false);
 
   let count = 0;
@@ -25,14 +29,7 @@ function Cart({ cartItems, onCartEmpty, onAdd, onRemove, product }) {
           </div>
         </div>
       </div>
-      <Dropdown
-        product={product}
-        onRemove={onRemove}
-        onAdd={onAdd}
-        onCartEmpty={onCartEmpty}
-        visible={toggleDropdown}
-        cartItems={cartItems}
-      />
+      <Dropdown onCartEmpty={onCartEmpty} visible={toggleDropdown} />
     </div>
   );
 }
