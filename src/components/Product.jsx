@@ -1,5 +1,5 @@
+import { useCart } from "../providers/CartProvider.hook";
 import Button from "./Button";
-import useCart from "../hooks/useCart";
 
 function Product({ product, itemPageActive }) {
   const { name, price, image } = product;

@@ -1,10 +1,10 @@
 import Cart from "./Cart";
+import { useState } from "react";
+
 import { GiDuck } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgCloseR } from "react-icons/cg";
-
-import { useState } from "react";
 
 function Header({ onCartEmpty }) {
   const [showMenu, setShowMenu] = useState(false);

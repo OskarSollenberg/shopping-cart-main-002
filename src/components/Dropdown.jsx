@@ -1,7 +1,7 @@
 import { FaShoppingBag } from "react-icons/fa";
 import { products } from "../data";
 import Button from "./Button";
-import useCart from "../hooks/useCart";
+import { useCart } from "../providers/CartProvider.hook";
 
 function Dropdown({ visible, onCartEmpty }) {
   const { get, add, remove } = useCart();

@@ -8,15 +8,16 @@ export default function useCart() {
     return cartItems;
   };
 
-  const add = (id, quantity = 1) => {
-    addRemoveFromCart(id, -quantity);
+  const add = (product, quantity = 1) => {
+    addRemoveFromCart(product, -quantity);
   };
 
-  const remove = (id, quantity = 1) => {
-    addRemoveFromCart(id, quantity);
+  const remove = (product, quantity = 1) => {
+    addRemoveFromCart(product, quantity);
   };
 
-  const addRemoveFromCart = (id, quantity) => {
+  const addRemoveFromCart = (product, quantity) => {
+    const { id } = product;
     // this does nothing ?
     let foundItemInCart = false;
     //     const { price } = id;

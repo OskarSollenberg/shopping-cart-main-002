@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Dropdown from "./Dropdown";
+
 import { FaShoppingCart } from "react-icons/fa";
-import useCart from "../hooks/useCart";
+import { useCart } from "../providers/CartProvider.hook";
 
 function Cart({ onCartEmpty }) {
   const { get } = useCart();

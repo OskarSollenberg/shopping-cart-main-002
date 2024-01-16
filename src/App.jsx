@@ -9,14 +9,16 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Root onCartEmpty={handleCartEmpty} />}>
-          <Route index element={<HomePage />}></Route>
-          <Route path="/product/:id" element={<ItemPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Root onCartEmpty={handleCartEmpty} />}>
+            <Route index element={<HomePage />}></Route>
+            <Route path="/product/:id" element={<ItemPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
