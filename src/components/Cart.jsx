@@ -4,12 +4,10 @@ import Dropdown from "./Dropdown";
 import { FaShoppingCart } from "react-icons/fa";
 import { useCart } from "../providers/CartProvider.hook";
 
-function Cart({ onCartEmpty }) {
+function Cart() {
   const { get } = useCart();
   const cartItems = get();
-
   const [toggleDropdown, setoggleDropdown] = useState(false);
-
   let count = 0;
   cartItems.forEach((d) => {
     count += d.count;
@@ -30,7 +28,7 @@ function Cart({ onCartEmpty }) {
           </div>
         </div>
       </div>
-      <Dropdown onCartEmpty={onCartEmpty} visible={toggleDropdown} />
+      <Dropdown visible={toggleDropdown} />
     </div>
   );
 }

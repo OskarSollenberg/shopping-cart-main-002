@@ -1,11 +1,13 @@
 import { FaShoppingBag } from "react-icons/fa";
-import { products } from "../data";
 import Button from "./Button";
 import { useCart } from "../providers/CartProvider.hook";
+import useGetProducts from "../hooks/useGetProducts";
 
-function Dropdown({ visible, onCartEmpty }) {
-  const { get, add, remove } = useCart();
+function Dropdown({ visible }) {
+  const { get, add, remove, empty } = useCart();
   const cartItems = get();
+  const { products } = useGetProducts();
+  console.log(cartItems);
 
   const totalPrice = cartItems.reduce(
     (acc, curr) => acc + curr.price * curr.count,
@@ -22,9 +24,9 @@ function Dropdown({ visible, onCartEmpty }) {
         <div className="grid place-items-center w-[100%] p-4 bg-brown">
           <FaShoppingBag />
         </div>
+
         {cartItems.map((item) => {
           const foundItem = products.find((product) => product.id === item.id);
-
           return (
             <div
               className={`flex justify-between items-center p-1 w-[100%] border-b border-white`}
@@ -59,7 +61,7 @@ function Dropdown({ visible, onCartEmpty }) {
         </p>
         ;
         <div className="absolute bottom-4 left-4 text-brown ">
-          <Button onClick={onCartEmpty}>Empty Cart</Button>
+          <Button onClick={empty}>Empty Cart</Button>
         </div>
       </div>
     </div>

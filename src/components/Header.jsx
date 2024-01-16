@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CgCloseR } from "react-icons/cg";
 
-function Header({ onCartEmpty }) {
+function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -68,7 +68,7 @@ function Header({ onCartEmpty }) {
 
       `}
       >
-        <Cart onCartEmpty={onCartEmpty} />
+        <Cart />
       </div>
     </div>
   );
